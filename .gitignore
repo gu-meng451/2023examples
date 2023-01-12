@@ -1,0 +1,19 @@
+# Ignore
+
+## Julia
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+deps/deps.jl
+
+## Matlab
+*.mat
+*~
+*.asv
+
+## Jupyter
+.ipynb_checkpoints/
+
+## Compiled programs
+*.exe
+*.o

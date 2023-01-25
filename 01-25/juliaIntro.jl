@@ -1,7 +1,7 @@
 using Printf
 
 ## Strings
-`a = "this is a string"`
+a = "this is a string"
 
 ## Dictionaries
 A = Dict(1 => "value1", "2" => rand() )

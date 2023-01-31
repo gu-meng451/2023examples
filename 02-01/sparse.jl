@@ -1,6 +1,7 @@
 using Pkg
 Pkg.activate(".")
 using SparseArrays
+using LinearAlgebra
 using Plots
 using JLD2
 
@@ -31,3 +32,8 @@ k1 = K[1:n, 1:n]
 p = amd(k1)
 k2 = k1[p, p]
 spy(k2)
+
+# Let's look at the 'in-fill' of the LU factorization
+F = lu(Matrix(k2))
+spy(F.L)
+spy!(F.U)

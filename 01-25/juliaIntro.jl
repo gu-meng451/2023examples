@@ -4,11 +4,14 @@ using Printf
 a = "this is a string"
 
 ## Dictionaries
+# key => value
 A = Dict(1 => "value1", "2" => rand() )
 # so to access it we use the 'key'
 A[1]
 A["2"]
 A[:newsym] = 4
+
+A["2"] = [1 2 3 3]
 
 ## Strucs
 mutable struct myCustomType
@@ -35,7 +38,7 @@ x = 0
 y = 0
 for i in 1:4
     x = i
-    y += x
+    y += x # y = y + x, -=, *=, /=
     j = 10
 end
 x
@@ -61,7 +64,7 @@ n = 3
 iter = 0
 while iter < n
     iter += 1
-    @printf("i = %d\n",i)
+    @printf("i = %d\n",iter)
 end
 
 

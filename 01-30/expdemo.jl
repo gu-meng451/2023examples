@@ -45,7 +45,7 @@ while !convergenceFlag
     iter += 1
 
     newterm *= z
-    y += newterm
+    y += newterm/iter
 
     rel_error = abs( newterm )
     if verbose

@@ -1,0 +1,48 @@
+# Ignore
+
+## LaTeX
+main.pdf
+*.synctex.gz
+*.bak
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.spl
+*.dvi
+*.lof
+*.lop
+*.lot
+*.toc
+*.idx
+*.ilg
+*.ind
+*.tdo
+*.bcf
+*.run.xml
+*.fls
+*.fdb_latexmk
+*.bib.sav
+*.bib.sav.tmp
+*.xdv
+*-cache.yaml
+*.synctex(busy)
+
+## Julia
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+deps/deps.jl
+
+## Matlab
+*.mat
+*~
+*.asv
+
+## Jupyter
+.ipynb_checkpoints/
+
+## Compiled programs
+*.exe
+*.o

@@ -5,7 +5,8 @@ using LinearAlgebra
 function lag(x,j,X)
     n = length(X)
 
-    l = 1.0
+    # l = 1.
+    l = one(typeof(x))
 
     for m = 1:n
         if m != j

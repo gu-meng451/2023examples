@@ -10,7 +10,7 @@
 \RequirePackage{mathtools}
 \RequirePackage{mathrsfs}
 \RequirePackage{graphicx}
-\RequirePackage[twoside]{fancyhdr}
+\RequirePackage{fancyhdr}
 \RequirePackage{enumerate}
 \RequirePackage{xcolor}
 \RequirePackage{hyperref}

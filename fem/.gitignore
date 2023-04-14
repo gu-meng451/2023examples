@@ -1,0 +1,53 @@
+# Ignore file list
+
+## Specific files
+
+## General files
+*~
+~*
+\#*\#
+.$*$
+*.asv
+.~*
+.#*
+
+## LaTeX files
+*.pdf
+*.synctex.gz
+*.bak
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.spl
+*.dvi
+*.lof
+*.lop
+*.lot
+*.toc
+*.idx
+*.ilg
+*.ind
+*.tdo
+*.bcf
+*.run.xml
+*.fls
+*.fdb_latexmk
+*.bib.sav
+*.bib.sav.tmp
+*.xdv
+*-cache.yaml
+*.synctex(busy)
+
+## Windows files
+Thumbs.db
+
+## IPython files
+.ipynb_checkpoints/
+
+## Julia Files
+Manifest.toml
+
+## vscode 
+.vscode/

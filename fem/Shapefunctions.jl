@@ -15,9 +15,21 @@ function line(r::AbstractFloat)
 end
 line(r) = line(r[1])
 
+function quad(r,s)
+
+    NN = NaN
+    Nr = NaN
+    Ns = NaN
+    return NN, Nr, Ns
+
+end
+quad(r) = quad(r[1],r[2])
+
 function shapefunc(el_type::String)
     if el_type == "line"
         return line
+    elseif el_type == "quad"
+        return quad
     else
         error("Element type not found")
     end

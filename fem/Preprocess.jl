@@ -21,7 +21,7 @@ struct mesh
     freefix_range::Any
 end
 
-#= Sandard GMSH element types:
+#= Standard GMSH element types:
 % Types = { ...
 %     {  2,  1, 'LINES',      'nbLines'},      ... % 1
 %     {  3,  2, 'TRIANGLES',  'nbTriangles'},  ...
@@ -47,7 +47,7 @@ end
 
 struct element_def
     name::String
-    nen::Int
+    nen::Int # number of nodes in the element
     internal_dim::Int
     gmsh_number::Int
 end
@@ -58,6 +58,9 @@ const std_element_defs = Dict("line" => element_def("Linear Line", 2, 1, 1),
                               "quad" => element_def("4 node quadrilateral", 4, 2, 3))
 
 function build_ID(nnp, g_list, ned, fix_list)
+    # g_list[i,A] are the values that are prescribed
+    # fix_list[i,A] are the places where g_list is applied
+
     neq = 0
     count = 0
 
@@ -65,6 +68,7 @@ function build_ID(nnp, g_list, ned, fix_list)
     ng = sum(fix_list[:] .> 0)
 
     ## construct ID
+    # ned: number of dof per node
     ID = zeros(Int, ned, nnp)
     totaldof = ned * nnp
 
@@ -72,8 +76,8 @@ function build_ID(nnp, g_list, ned, fix_list)
 
     ## loop over all nodes
     if ng > 0
-        for A in 1:nnp
-            for i in 1:ned
+        for A in 1:nnp # loop over each node
+            for i in 1:ned # loop over each node's dof
                 # find Essential BC
                 if fix_list[i, A] == 1
                     ID[i, A] = totaldof - count

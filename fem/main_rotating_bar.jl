@@ -26,7 +26,7 @@ prop = (E = 1.0, # Young's Modulus [F/m^2]
 
 ## mesh connectivity
 # IEN(e,a)
-nnp = 4
+nnp = 20
 nel = nnp - 1
 nee = 2
 IEN = Dict("line" => zeros(Int, nel, nee))
@@ -55,7 +55,9 @@ F = Bar1D.assemble_rhs(m, f, quad_rules)
 
 ## Solve the system
 q = zeros(m.nnp * m.ned)
-q[m.free_range] = K[m.free_range, m.free_range] \ F[m.free_range]
+r1 = m.free_range
+r2 = m.freefix_range
+q[r1] = K[r1, r1] \ ( F[r1] - K[r1, r2]*q[r2] )
 
 ## Plot the result
 u_true(x) = prop.ρ * prop.Ω^2 / 6 / prop.E * (-x^3 + 3 * prop.L^2 * x)

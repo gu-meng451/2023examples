@@ -27,5 +27,12 @@ function gauss_legendre_1d(n)
                     zip(eachrow(ξ), w))
 end
 
+function gauss_legendre_2d(n)
+
+    gl = gauss_legendre_1d(n)
+    ## TODO: finish rule
+    
+end
+
 
 end

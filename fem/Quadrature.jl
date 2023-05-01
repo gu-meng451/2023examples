@@ -30,8 +30,24 @@ end
 function gauss_legendre_2d(n)
 
     gl = gauss_legendre_1d(n)
-    ## TODO: finish rule
-    
+    ξ1 = gl.ξ
+    w1 = gl.w
+
+    ξ = zeros(n,n)
+    η = zeros(n,n)
+    w = zeros(n,n)
+    for i in eachindex(ξ1)
+        for j in eachindex(ξ1)
+            ξ[i,j] = ξ1[i]
+            η[i,j] = ξ1[j]
+            w[i,j] = w1[i]*w1[j]
+        end
+    end
+    # pack the output
+    X = hcat( ξ[:], η[:] )
+    return quadrule("2D GL on natural square", n^2, 
+        2, X, w[:], zip( eachcol(X), w[:] ) )
+
 end
 
 
